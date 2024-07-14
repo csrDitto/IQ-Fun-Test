@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kali Linux Chatroom</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 20px;
+            background-color: #1a1a1a;
+        }
+        .chat-container {
+            padding: 20px;
+        }
+        .message {
+            background-color: #1a1a1a;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kali Linux Chatroom</h1>
+    </header>
+
+    <div class="chat-container">
+        <div class="message">Welcome to the Kali Linux Chatroom!</div>
+        <!-- Add chat functionality here -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ethical Hacker Chatrooms</p>
+    </footer>
+    <div class="chat-container">
+        <div id="messages" class="messages"></div>
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    
+    <script>
+        const messages = document.getElementById('messages');
+    
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value;
+            if (message.trim() !== '') {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.textContent = message;
+                messages.appendChild(messageElement);
+                messageInput.value = '';
+            }
+        }
+    
+        // Allow pressing Enter to send message
+        document.getElementById('messageInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>    
+</body>
+</html>
